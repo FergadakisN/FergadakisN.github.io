@@ -8,121 +8,215 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0f172a;
+      background:
+        radial-gradient(circle at top left, rgba(20, 184, 166, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 25%),
+        #0f172a;
       color: #e5e7eb;
       line-height: 1.6;
     }
 
     header {
-      padding: 60px 20px 30px;
+      padding: 90px 20px 50px;
       text-align: center;
-      background: linear-gradient(135deg, #111827, #1e293b);
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 41, 59, 0.7));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: #5eead4;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 14px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 3.2rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
       color: white;
     }
 
     header p {
-      max-width: 800px;
-      margin: 20px auto 0;
+      max-width: 760px;
+      margin: 18px auto 0;
       color: #cbd5e1;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
 
     main {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 48px 20px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
+      gap: 28px;
     }
 
     .card {
-      background: #1e293b;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: rgba(30, 41, 59, 0.86);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(8px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+      border-color: rgba(20, 184, 166, 0.35);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: rgba(20, 184, 166, 0.12);
+      color: #5eead4;
+      border: 1px solid rgba(20, 184, 166, 0.2);
     }
 
     .card h2 {
-      margin-top: 0;
+      margin: 0 0 8px 0;
       color: #14b8a6;
+      font-size: 1.35rem;
     }
 
     .card p {
+      margin: 0 0 14px 0;
       color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+
+    .media-frame {
+      margin-top: 14px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      background: #0b1220;
     }
 
     img, iframe {
       width: 100%;
-      border-radius: 12px;
-      margin-top: 12px;
+      display: block;
+      border: none;
+    }
+
+    img {
+      height: auto;
     }
 
     iframe {
-      height: 420px;
-      border: none;
-      background: white;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: #94a3b8;
-      font-size: 0.95rem;
+      height: 500px;
+      background: #0b1220;
     }
 
     a.button {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 16px;
-      background: #14b8a6;
+      margin-top: 16px;
+      padding: 12px 18px;
+      background: linear-gradient(135deg, #14b8a6, #2dd4bf);
       color: #0f172a;
       text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(20, 184, 166, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
     }
 
     a.button:hover {
-      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(20, 184, 166, 0.35);
+      opacity: 0.98;
+    }
+
+    footer {
+      text-align: center;
+      padding: 34px 20px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 70px 20px 40px;
+      }
+
+      header h1 {
+        font-size: 2.4rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 36px 16px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      iframe {
+        height: 420px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>San Francisco Crime: Interactive Visual Analysis</h1>
-    <p>
-      This website presents static and interactive visualizations created during the course.
-      The goal is to explore patterns in San Francisco crime data across time, category, and geography.
-    </p>
+    <div class="hero-inner">
+      <p class="eyebrow">Week 7 · Data Visualization</p>
+      <h1>San Francisco Crime: Interactive Visual Analysis</h1>
+      <p>
+        This website presents static and interactive visualizations created during the course.
+        The goal is to explore patterns in San Francisco crime data across time, category, and geography.
+      </p>
+    </div>
   </header>
 
   <main>
     <div class="grid">
       <section class="card">
+        <span class="tag">Static Figure</span>
         <h2>Yearly Crime Trends</h2>
-        <p>A static matplotlib figure showing how total crime changed over time.</p>
-        <img src="images/yearly_crime_trends.png" alt="Yearly crime trends figure">
+        <p>
+          A static matplotlib figure showing how total crime changed over time.
+        </p>
+        <div class="media-frame">
+          <img src="images/yearly_crime_trends.png" alt="Yearly crime trends figure">
+        </div>
       </section>
 
       <section class="card">
-        <h2>Hourly Crime Patterns</h2>
-        <p>An interactive Plotly visualization for exploring crime across hours of the day.</p>
-        <iframe src="visualizations/map_3_1_prostitution_movie.html"></iframe>
-        <a class="button" href="visualizations/map_3_1_prostitution_movie.html">Open full chart</a>
+        <span class="tag">Interactive Visualization</span>
+        <h2>Crime Pattern Explorer</h2>
+        <p>
+          An interactive visualization for exploring selected crime patterns in San Francisco.
+        </p>
+        <div class="media-frame">
+          <iframe src="visualizations/map_3_1_prostitution_movie.html"></iframe>
+        </div>
+        <a class="button" href="visualizations/map_3_1_prostitution_movie.html" target="_blank">Open full visualization</a>
       </section>
     </div>
   </main>
