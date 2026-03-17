@@ -1,16 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Data Viz Site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>San Francisco Crime Visualizations</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 60px 20px 30px;
+      text-align: center;
+      background: linear-gradient(135deg, #111827, #1e293b);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: 20px auto 0;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #14b8a6;
+    }
+
+    .card p {
+      color: #cbd5e1;
+    }
+
+    img, iframe {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+
+    iframe {
+      height: 420px;
+      border: none;
+      background: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background: #14b8a6;
+      color: #0f172a;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    a.button:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello world!</h1>
-    <p>This site will soon contain interactive data visualizations about crime in SF</p>
+  <header>
+    <h1>San Francisco Crime: Interactive Visual Analysis</h1>
+    <p>
+      This website presents static and interactive visualizations created during the course.
+      The goal is to explore patterns in San Francisco crime data across time, category, and geography.
+    </p>
+  </header>
 
-    <h2>Static yearly trends figure</h2>
-    <img src="images/yearly_crime_trends.png" alt="Yearly crime trends" width="800">
+  <main>
+    <div class="grid">
+      <section class="card">
+        <h2>Yearly Crime Trends</h2>
+        <p>A static matplotlib figure showing how total crime changed over time.</p>
+        <img src="images/yearly_crime_trends.png" alt="Yearly crime trends figure">
+      </section>
 
-    <h2>Interactive hourly crime chart</h2>
-    <iframe src="visualizations/map_3_1_prostitution_movie.html" width="800" height="500"></iframe>
+      <section class="card">
+        <h2>Hourly Crime Patterns</h2>
+        <p>An interactive Plotly visualization for exploring crime across hours of the day.</p>
+        <iframe src="visualizations/map_3_1_prostitution_movie.html"></iframe>
+        <a class="button" href="visualizations/map_3_1_prostitution_movie.html">Open full chart</a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    Created for Week 7 — Data Visualization Course
+  </footer>
 </body>
 </html>
