@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>San Francisco Crime Visualizations</title>
+  <title>San Francisco Crime: A Short Data Story</title>
   <style>
     body {
       margin: 0;
@@ -58,50 +58,31 @@
       padding: 48px 20px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-    }
-
-    .card {
+    .section {
       background: rgba(30, 41, 59, 0.86);
       border: 1px solid rgba(148, 163, 184, 0.15);
       border-radius: 20px;
-      padding: 24px;
+      padding: 28px;
+      margin-bottom: 30px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(8px);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-      border-color: rgba(20, 184, 166, 0.35);
-    }
-
-    .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      background: rgba(20, 184, 166, 0.12);
-      color: #5eead4;
-      border: 1px solid rgba(20, 184, 166, 0.2);
-    }
-
-    .card h2 {
-      margin: 0 0 8px 0;
+    .section h2 {
+      margin-top: 0;
       color: #14b8a6;
-      font-size: 1.35rem;
+      font-size: 1.6rem;
     }
 
-    .card p {
-      margin: 0 0 14px 0;
+    .section p {
       color: #cbd5e1;
-      font-size: 0.98rem;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .section-lead {
+      font-size: 1.1rem;
+      color: #e5e7eb;
     }
 
     .media-frame {
@@ -127,23 +108,15 @@
       background: #0b1220;
     }
 
-    a.button {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 12px 18px;
-      background: linear-gradient(135deg, #14b8a6, #2dd4bf);
-      color: #0f172a;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 700;
-      box-shadow: 0 6px 18px rgba(20, 184, 166, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    figure {
+      margin: 0;
     }
 
-    a.button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(20, 184, 166, 0.35);
-      opacity: 0.98;
+    figcaption {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      line-height: 1.5;
     }
 
     footer {
@@ -172,8 +145,8 @@
         padding: 36px 16px;
       }
 
-      .card {
-        padding: 20px;
+      .section {
+        padding: 22px;
       }
 
       iframe {
@@ -185,44 +158,89 @@
 <body>
   <header>
     <div class="hero-inner">
-      <p class="eyebrow">Week 7 · Data Visualization</p>
-      <h1>San Francisco Crime: Interactive Visual Analysis</h1>
+      <p class="eyebrow">Week 8 · Data Story</p>
+      <h1>San Francisco Crime: A Short Data Story</h1>
       <p>
-        This website presents static and interactive visualizations created during the course.
-        The goal is to explore patterns in San Francisco crime data across time, category, and geography.
+        This page presents a brief, author-guided story about how reported crime in San Francisco has changed over time and space.
+        All figures are based on the same SF crime dataset used throughout the course.
       </p>
     </div>
   </header>
 
   <main>
-    <div class="grid">
-      <section class="card">
-        <span class="tag">Static Figure</span>
-        <h2>Yearly Crime Trends</h2>
-        <p>
-          A static matplotlib figure showing how total crime changed over time.
-        </p>
-        <div class="media-frame">
-          <img src="images/yearly_crime_trends.png" alt="Yearly crime trends figure">
-        </div>
-      </section>
+    <section class="section">
+      <h2>Introducing the Data</h2>
+      <p class="section-lead">
+        The figures below are based on police incident reports from San Francisco, covering multiple years of recorded crime.
+        Each row in the dataset represents a reported incident, with information about the offense type, time, and location.
+      </p>
+      <p>
+        Like any administrative dataset, these records reflect both actual events and the way police choose to record and enforce them.
+        When you see a spike or drop in the charts, it might signal a real change in crime, a shift in enforcement priorities, or a mix of both.
+        The goal of this short story is to highlight a few clear patterns rather than explain every detail of the city&apos;s crime dynamics.
+      </p>
+    </section>
 
-      <section class="card">
-        <span class="tag">Interactive Visualization</span>
-        <h2>Crime Pattern Explorer</h2>
-        <p>
-          An interactive visualization for exploring selected crime patterns in San Francisco.
-        </p>
-        <div class="media-frame">
-          <iframe src="visualizations/map_3_1_prostitution_movie.html"></iframe>
-        </div>
-        <a class="button" href="visualizations/map_3_1_prostitution_movie.html" target="_blank">Open full visualization</a>
-      </section>
-    </div>
+    <section class="section">
+      <h2>1. How reported crime evolved over time</h2>
+      <p>
+        We start with a static overview of total reported crime by year.
+        This view smooths out daily noise and lets us see broad shifts in how often incidents are recorded in the city.
+      </p>
+      <figure class="media-frame">
+        <img src="images/yearly_crime_trends.png" alt="Yearly crime trends in San Francisco">
+        <figcaption>
+          Yearly totals of reported crime incidents in San Francisco.
+          The line shows how the overall volume of recorded crime changes across years, with longer-term rises and falls that suggest shifts in city life, enforcement, and reporting practices.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>2. Where specific offenses cluster in the city</h2>
+      <p>
+        A map helps reveal geography that a time-series alone cannot show.
+        Here, each point (or hotspot) on the map corresponds to locations where a particular offense category is concentrated.
+      </p>
+      <figure class="media-frame">
+        <iframe src="visualizations/map_3_1_prostitution_movie.html"></iframe>
+        <figcaption>
+          Map of San Francisco highlighting locations associated with a specific crime category over time.
+          Clusters on the map reveal neighborhoods where these incidents are repeatedly recorded, underscoring how certain types of crime are unevenly distributed across the city.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>3. Exploring patterns interactively</h2>
+      <p>
+        Finally, an interactive Plotly visualization lets the reader dig into a different slice of the data&mdash;for example, comparing categories across districts or exploring how incidents vary by time of day.
+        Use the hover and filter controls in the chart to focus on the categories or areas that interest you most.
+      </p>
+      <figure class="media-frame">
+        <iframe src="visualizations/interactive_crime_patterns.html"></iframe>
+        <figcaption>
+          Interactive Plotly chart showing a different aspect of the SF crime dataset (for example, incident counts by category and district or by hour of day).
+          The interactivity lets readers move beyond the fixed story and inspect specific categories, districts, or time windows that matter to them.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>What to take away</h2>
+      <p>
+        Taken together, these three views highlight how much depends on perspective:
+        a yearly time-series smooths the data into a single line, the map emphasizes place, and the interactive chart hands the reader some control over what to inspect.
+      </p>
+      <p>
+        None of these figures can fully explain why crime changes, but they can point to patterns worth investigating further.
+        Any interpretation should be paired with context about policing, policy, and neighborhood change&mdash;otherwise, it is easy to mistake changes in recording for changes in people&apos;s behavior.
+      </p>
+    </section>
   </main>
 
   <footer>
-    Created for Week 7 — Data Visualization Course
+    Created for Week 8 — Social Data Analysis · Published on fergadakisn.github.io
   </footer>
 </body>
 </html>
