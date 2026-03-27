@@ -85,6 +85,17 @@
       color: #e5e7eb;
     }
 
+    .section ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+      color: #cbd5e1;
+    }
+
+    .section li {
+      margin: 10px 0;
+      line-height: 1.55;
+    }
+
     .media-frame {
       margin-top: 14px;
       border-radius: 16px;
@@ -203,7 +214,7 @@
         Here, each point (or hotspot) on the map corresponds to locations where a particular offense category is concentrated.
       </p>
       <figure class="media-frame">
-        <iframe src="visualizations/map_3_1_prostitution_movie.html"></iframe>
+        <iframe src="visualizations/map_3_1_prostitution_movie.html" loading="lazy" title="Crime map visualization"></iframe>
         <figcaption>
           Map of San Francisco highlighting locations associated with a specific crime category over time.
           Clusters on the map reveal neighborhoods where these incidents are repeatedly recorded, underscoring how certain types of crime are unevenly distributed across the city.
@@ -218,7 +229,7 @@
         Use the hover and filter controls in the chart to focus on the categories or areas that interest you most.
       </p>
       <figure class="media-frame">
-        <iframe src="visualizations/interactive_crime_patterns.html"></iframe>
+        <iframe src="visualizations/interactive_crime_patterns.html" loading="lazy" title="Interactive crime patterns visualization"></iframe>
         <figcaption>
           Interactive Plotly chart showing a different aspect of the SF crime dataset (for example, incident counts by category and district or by hour of day).
           The interactivity lets readers move beyond the fixed story and inspect specific categories, districts, or time windows that matter to them.

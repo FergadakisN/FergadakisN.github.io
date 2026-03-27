@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Crime Patterns</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: rgba(30, 41, 59, 0.92);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #14b8a6;
+      --border: rgba(148, 163, 184, 0.18);
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(20, 184, 166, 0.14), transparent 34%),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 18px 28px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    header {
+      padding: 18px 18px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(94, 234, 212, 0.95);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.15rem;
+      margin: 0;
+      color: white;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+
+    #chart {
+      width: 100%;
+      height: 520px;
+      background: var(--bg);
+    }
+
+    .note {
+      padding: 14px 18px 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .note strong {
+      color: var(--text);
+    }
+
+    a {
+      color: rgba(94, 234, 212, 0.95);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      #chart {
+        height: 440px;
+      }
+    }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <header>
+        <div class="eyebrow">Interactive (placeholder)</div>
+        <h1>Crime patterns explorer</h1>
+        <p>
+          This embedded chart is a clean placeholder so your website doesn’t show a 404.
+          Replace this file with the Plotly HTML you export from your notebook.
+        </p>
+      </header>
+
+      <div id="chart"></div>
+
+      <div class="note">
+        <strong>Next step:</strong> in your Week 8 notebook, export your Plotly figure to
+        <code>week7_github_pages/FergadakisN.github.io/visualizations/interactive_crime_patterns.html</code>
+        using <code>fig.write_html(...)</code>. Once you push to GitHub Pages, this embed will show your real chart.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const hours = Array.from({ length: 24 }, (_, i) => i);
+    const counts = [3, 2, 2, 2, 2, 3, 6, 10, 12, 11, 10, 10, 11, 12, 12, 13, 14, 16, 15, 12, 9, 7, 5, 4];
+
+    const data = [{
+      x: hours,
+      y: counts,
+      type: "scatter",
+      mode: "lines+markers",
+      line: { color: "#14b8a6", width: 3 },
+      marker: { color: "#5eead4", size: 7 },
+      hovertemplate: "Hour %{x}: %{y} incidents<extra></extra>"
+    }];
+
+    const layout = {
+      title: { text: "Example: incidents by hour (dummy data)", font: { color: "#e5e7eb", size: 16 } },
+      paper_bgcolor: "#0b1220",
+      plot_bgcolor: "#0b1220",
+      margin: { l: 52, r: 24, t: 58, b: 48 },
+      xaxis: {
+        title: { text: "Hour of day", font: { color: "#cbd5e1" } },
+        tickfont: { color: "#94a3b8" },
+        gridcolor: "rgba(148, 163, 184, 0.12)",
+        zerolinecolor: "rgba(148, 163, 184, 0.18)"
+      },
+      yaxis: {
+        title: { text: "Incident count", font: { color: "#cbd5e1" } },
+        tickfont: { color: "#94a3b8" },
+        gridcolor: "rgba(148, 163, 184, 0.12)",
+        zerolinecolor: "rgba(148, 163, 184, 0.18)"
+      }
+    };
+
+    const config = { displayModeBar: false, responsive: true };
+    Plotly.newPlot("chart", data, layout, config);
+  </script>
+</body>
+</html>
+
